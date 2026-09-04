@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c7hih6k180u02"]
+
+[ext_resource type="Texture2D" uid="uid://mr0pjtwl25er" path="res://assets/art/backgrounds/pitch-background.png" id="1_oji8i"]
+
+[node name="Mundo" type="Node2D" unique_id=1764176173]
+
+[node name="Backgrounds" type="Node2D" parent="." unique_id=98933673]
+
+[node name="Grama" type="Sprite2D" parent="Backgrounds" unique_id=2068046269]
+texture = ExtResource("1_oji8i")
+centered = false
