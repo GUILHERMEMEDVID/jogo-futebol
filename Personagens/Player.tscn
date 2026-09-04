@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://br82n6pb4bk7q"]
+
+[ext_resource type="Texture2D" uid="uid://bt44fr1mo0spr" path="res://assets/art/characters/soccer-player.png" id="1_u8esv"]
+
+[sub_resource type="Animation" id="Animation_v8ayf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ncr37"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4me4q"]
+_data = {
+&"RESET": SubResource("Animation_v8ayf"),
+&"idle": SubResource("Animation_ncr37")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t1h4l"]
+radius = 4.0
+height = 18.0
+
+[node name="Player" type="CharacterBody2D" unique_id=558906629]
+
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1808527553]
+texture = ExtResource("1_u8esv")
+centered = false
+offset = Vector2(-16, -32)
+hframes = 6
+vframes = 13
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=831721998]
+libraries/ = SubResource("AnimationLibrary_4me4q")
+autoplay = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1616331410]
+position = Vector2(0, -3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_t1h4l")

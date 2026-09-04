@@ -1,11 +1,28 @@
 [gd_scene format=3 uid="uid://c7hih6k180u02"]
 
 [ext_resource type="Texture2D" uid="uid://mr0pjtwl25er" path="res://assets/art/backgrounds/pitch-background.png" id="1_oji8i"]
+[ext_resource type="Texture2D" uid="uid://wjacof4jsu8w" path="res://assets/art/backgrounds/pitch-pattern.png" id="2_8gp82"]
+[ext_resource type="Texture2D" uid="uid://bdhfveo3pta0m" path="res://assets/art/backgrounds/pitch-lines.png" id="3_qboq2"]
+[ext_resource type="PackedScene" uid="uid://br82n6pb4bk7q" path="res://Personagens/Player.tscn" id="4_qboq2"]
 
 [node name="Mundo" type="Node2D" unique_id=1764176173]
 
 [node name="Backgrounds" type="Node2D" parent="." unique_id=98933673]
 
 [node name="Grama" type="Sprite2D" parent="Backgrounds" unique_id=2068046269]
+modulate = Color(0.5176471, 0.8039216, 0.16470589, 1)
 texture = ExtResource("1_oji8i")
 centered = false
+
+[node name="Padrão" type="Sprite2D" parent="Backgrounds" unique_id=973226012]
+modulate = Color(0.28235295, 0.60784316, 0, 1)
+texture = ExtResource("2_8gp82")
+centered = false
+
+[node name="Linhas" type="Sprite2D" parent="Backgrounds" unique_id=541629467]
+modulate = Color(0.9411765, 0.9411765, 0.9411765, 1)
+texture = ExtResource("3_qboq2")
+centered = false
+
+[node name="Player" parent="." unique_id=558906629 instance=ExtResource("4_qboq2")]
+position = Vector2(125, 105)
